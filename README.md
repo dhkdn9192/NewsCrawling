@@ -7,7 +7,9 @@ NewsCrawling Python code
 ## 1.2. 소스코드 별 기능
 ### 1.2.1. NewsCrawlingNaeil.py
 [내일신문](http://www.naeil.com/news_list/?cate=01003000)의 웹페이지로부터 뉴스를 크롤링한다. 입력 URL은 정치 섹션, 경제 섹션 등 특정 섹션에 접속하는 URL 주소이다.
-읽어올 수 있는 섹션 종류는 다음과 같다.
+
+#### NewsSection URL
+    내일신문으로부터 읽어올 수 있는 섹션 종류는 다음과 같다.
     1. 정치 : [http://www.naeil.com/news_list/?cate=01002000](http://www.naeil.com/news_list/?cate=01002000)
     2. 경제 : [http://www.naeil.com/news_list/?cate=01003000](http://www.naeil.com/news_list/?cate=01003000)
     3. 세계 : [http://www.naeil.com/news_list/?cate=01004000](http://www.naeil.com/news_list/?cate=01004000)
@@ -15,7 +17,9 @@ NewsCrawling Python code
 
 ### 1.2.2. NewsCrawlingDigitaltimes.py
 [디지털타임스](http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401)의 웹페이지로부터 뉴스를 크롤링한다. 입력 URL은 정치 섹션, 경제 섹션 등 특정 섹션에 접속하는 URL 주소이다.
-읽어올 수 있는 섹션 종류는 다음과 같다.
+
+#### NewsSection URL
+    디지털타임스로부터 읽어올 수 있는 섹션 종류는 다음과 같다.
     1. 정치 : [http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401](http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401)
     2. 정보통신컨텐츠 : [http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2001](http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2001)
     3. 산업 : [http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2201](http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2201)
