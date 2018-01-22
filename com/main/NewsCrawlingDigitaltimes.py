@@ -199,14 +199,16 @@ def getNewsDigitaltimes(url, filename, date="", maxpage=5, isTestmode=False):
 
 # (1) 위에서 정의한 함수를 호출하여 내일신문에 대한 뉴스 크롤링을 실행한다.
 
-targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401' # 정치 섹션
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2001' # 정보통신컨텐츠
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2201' # 산업
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2101' # IT중기
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2801' # 과학유통건설
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=3101' # 경제금융증권
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2501' # 문화연예
-# targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=0201' # 오피니언
+sectionUrl1 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401' # 정치 섹션
+sectionUrl2 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2001' # 정보통신컨텐츠
+sectionUrl3 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2201' # 산업
+sectionUrl4 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2101' # IT중기
+sectionUrl5 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2801' # 과학유통건설
+sectionUrl6 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=3101' # 경제금융증권
+sectionUrl7 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2501' # 문화연예
+sectionUrl8 = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=0201' # 오피니언
+sectionList = [sectionUrl1, sectionUrl2, sectionUrl3, sectionUrl4,
+               sectionUrl5, sectionUrl6, sectionUrl7, sectionUrl8]
 
 
 # 뉴스 크롤링 실행 (하루치만 크롤링할 떄 다음 명령어 실행)
@@ -221,10 +223,12 @@ targetUrl = 'http://www.dt.co.kr/article_list.html?gcd=1&scd=100&lcd=2401' # 정
 begin_str = "2018-01-18"                                        # 크롤링일 시작할 날짜. 이날부터 하루씩 과거로 진행
 begin_dt = datetime.datetime.strptime(begin_str, "%Y-%m-%d")    # 시작일을 datetime 포맷으로 변경
 
-max_days = 1000     # 크롤링할 일수
+max_days = 365     # 크롤링할 일수
 for i in range(max_days):
-    target_dt = (begin_dt - datetime.timedelta(days=i)).strftime("%Y-%m-%d")                            # 대상일 계산
-    getNewsDigitaltimes(url=targetUrl, filename='digitaltimes.json', date=target_dt, isTestmode=True)   # 하루치 크롤링
+    target_dt = (begin_dt - datetime.timedelta(days=i)).strftime("%Y-%m-%d")        # 대상일 계산
+    # 섹션별로 해당 날짜별로 하루치씩 크롤링
+    for section in sectionList:
+        getNewsDigitaltimes(url=section, filename='digitaltimes.json', date=target_dt, isTestmode=True)
 
 
 # (2) Main Field에서 실행한 결과 파일을 읽어 표준출력하여 확인한다.
