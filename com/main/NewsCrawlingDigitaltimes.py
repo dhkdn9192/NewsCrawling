@@ -18,6 +18,9 @@
   - title       : 뉴스 타이틀
   - reporter    : 뉴스 게시자(기자)
   - body        : 뉴스 본문
+
+  test
+
 """
 
 import requests
